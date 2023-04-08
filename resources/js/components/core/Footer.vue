@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <span>{{ "------" }}</span>
+        <span>{{ "------" }} </span>
         <span>{{ "FOOTER" }}</span>
         <span>&copy; {{ currentYear }}</span>
     </footer>

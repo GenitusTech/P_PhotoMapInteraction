@@ -3,6 +3,7 @@
         <core-header />
         <core-main />
         <core-footer />
+        <notifications position="bottom right" :duration="7000" />
     </div>
 </template>
 

@@ -1,6 +1,9 @@
 import { defineStore } from "pinia";
 
 import axios from "../plugin/axios";
+// import { notify } from "@kyvg/vue3-notification";
+import { useNotification } from "@kyvg/vue3-notification";
+const { notify } = useNotification();
 // import { useAlertStore } from '@/stores';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}`;
@@ -28,13 +31,25 @@ export const useAuthStore = defineStore({
                             .catch(({ response: { data } }) => {
                                 for (let key in data.errors) {
                                     data.errors[key].forEach((value) => {
-                                        console.warn(key, ": ", value);
+                                        notify({
+                                            title: `${key}`.toLocaleUpperCase(),
+                                            text: `${value}`,
+                                            type: "warn",
+                                        });
                                     });
                                 }
+                                notify({
+                                    title: "Error on 'Login' Request",
+                                    type: "error",
+                                });
                             });
                         if (status === 202) {
                             this.user = data;
                             localStorage.setItem("user", JSON.stringify(data));
+                            notify({
+                                title: "Login successful",
+                                type: "success",
+                            });
                         }
                         // redirect to previous url or default to home page
                         // router.push(this.returnUrl || '/');
@@ -53,13 +68,25 @@ export const useAuthStore = defineStore({
                             .catch(({ response: { data } }) => {
                                 for (let key in data.errors) {
                                     data.errors[key].forEach((value) => {
-                                        console.warn(key, ": ", value);
+                                        notify({
+                                            title: `${key}`.toLocaleUpperCase(),
+                                            text: `${value}`,
+                                            type: "warn",
+                                        });
                                     });
                                 }
+                                notify({
+                                    title: "Error on 'Register' Request",
+                                    type: "error",
+                                });
                             });
                         if (status === 201) {
                             this.user = data;
                             localStorage.setItem("user", JSON.stringify(data));
+                            notify({
+                                title: "Register successful",
+                                type: "success",
+                            });
                         }
                     });
             } catch (error) {
@@ -78,13 +105,25 @@ export const useAuthStore = defineStore({
                             .catch(({ response: { data } }) => {
                                 for (let key in data.errors) {
                                     data.errors[key].forEach((value) => {
-                                        console.warn(key, ": ", value);
+                                        notify({
+                                            title: `${key}`.toLocaleUpperCase(),
+                                            text: `${value}`,
+                                            type: "warn",
+                                        });
                                     });
                                 }
+                                notify({
+                                    title: "Error on 'Logout' Request",
+                                    type: "error",
+                                });
                             });
                         if (status === 204) {
                             this.user = null;
                             localStorage.removeItem("user");
+                            notify({
+                                title: "Logout successful",
+                                type: "success",
+                            });
                         }
                         // redirect to previous url or default to home page
                         // router.push(this.returnUrl || '/');
