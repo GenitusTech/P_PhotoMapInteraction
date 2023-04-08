@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# git pull
-npm install
-composer install
+git pull
+npm install && npm run build
+composer install --prefer-dist --no-dev
 
 php artisan view:clear
 php artisan cache:clear
