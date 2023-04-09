@@ -83,7 +83,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .modal-backdrop {
-    @apply fixed inset-0 bg-gray-800/50 overflow-y-auto;
+    @apply fixed inset-0 bg-gray-800/50 overflow-y-auto z-[1000];
     // @apply fixed z-[1000] inset-0 overflow-y-auto bg-black bg-opacity-50;
     & .modal-center {
         @apply flex min-h-screen justify-center items-center;
