@@ -88,7 +88,6 @@ export const useAuthStore = defineStore({
                     console.warn('Error on "Register" Request');
                 }
             });
-
             // redirect to previous url or default to home page
             // router.push(this.returnUrl || '/');
         },
