@@ -1,8 +1,6 @@
 <template>
-    <div>
-        HOME
-        <br />
-        {{ getUser }}
+    <div id="page--home">
+        <v-osm />
     </div>
 </template>
 
@@ -15,13 +13,7 @@ export default {
 </script>
 
 <script setup>
-import { computed } from "vue";
-import { useAuthStore } from "../store/auth";
-
-const authStore = useAuthStore();
-const getUser = computed(() => {
-    return authStore.getUser;
-});
+import VOsm from "../components/osm/OSM.vue";
 </script>
 
 <style lang="scss" scoped>

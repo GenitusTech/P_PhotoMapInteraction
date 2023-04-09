@@ -1,5 +1,5 @@
 <template>
-    <main class="bg-green-300">
+    <main>
         <router-view v-slot="{ Component }">
             <keep-alive>
                 <component :is="Component" />
@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//
+main {
+    @apply grid gap-0 grid-cols-1 grid-rows-1;
+}
 </style>

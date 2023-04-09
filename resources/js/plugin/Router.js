@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import PageHome from "../pages/Home.vue";
+import PageOpenStreetMap from "../pages/Home.vue";
 
-const routes = [{ path: "/", name: "home", component: PageHome }];
+const routes = [{ path: "/", name: "OSM", component: PageOpenStreetMap }];
 
 const Router = createRouter({
     history: createWebHistory(),

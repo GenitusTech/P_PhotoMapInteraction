@@ -32,6 +32,9 @@
     .form-input {
         @apply block my-4 p-2 w-full rounded-md shadow-sm;
     }
+    main > div[id^="page--"] {
+        @apply bg-slate-100/50;
+    }
     // .form-input {
     //     @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
     // }
