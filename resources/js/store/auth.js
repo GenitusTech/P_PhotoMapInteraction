@@ -102,7 +102,7 @@ export const useAuthStore = defineStore({
                     .then(async () => {
                         const { status } = await axios
                             .post(`${baseUrl}/api/auth/logout`)
-                            .catch(({ response: { data } }) => {
+                            .catch(({ response: { data, status } }) => {
                                 for (let key in data.errors) {
                                     data.errors[key].forEach((value) => {
                                         notify({
@@ -112,10 +112,19 @@ export const useAuthStore = defineStore({
                                         });
                                     });
                                 }
-                                notify({
-                                    title: "Error on 'Logout' Request",
-                                    type: "error",
-                                });
+                                if (status === 401) {
+                                    this.user = null;
+                                    localStorage.removeItem("user");
+                                    notify({
+                                        title: "Forced Logout successful",
+                                        type: "warn",
+                                    });
+                                } else {
+                                    notify({
+                                        title: "Error on 'Logout' Request",
+                                        type: "error",
+                                    });
+                                }
                             });
                         if (status === 204) {
                             this.user = null;
