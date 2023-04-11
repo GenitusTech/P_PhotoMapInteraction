@@ -94,17 +94,14 @@ onMounted(() => {
             window.localStorage.getItem("watchId")
         );
     }
-    navigator.geolocation.getCurrentPosition((position) => {
-        center.value = [position.coords.latitude, position.coords.longitude];
-        window.localStorage.setItem(
-            "watchId",
-            navigator.geolocation.watchPosition(
-                successCallback,
-                errorCallback,
-                options
-            )
-        );
-    });
+    window.localStorage.setItem(
+        "watchId",
+        navigator.geolocation.watchPosition(
+            successCallback,
+            errorCallback,
+            options
+        )
+    );
 });
 </script>
 
