@@ -1,6 +1,9 @@
 @import url("maz-ui/css/main.css");
 @import url("leaflet/dist/leaflet.css");
 
+// Variables
+@import 'variables';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,15 +38,11 @@
     main > div[id^="page--"] {
         @apply bg-slate-100/50;
     }
-    // .form-input {
-    //     @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
-    // }
 }
 // Fonts
 // @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// Variables
-// @import 'variables';
+
 
 // Bootstrap
 // @import 'bootstrap/scss/bootstrap';

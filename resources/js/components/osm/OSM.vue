@@ -85,7 +85,7 @@ const errorCallback = (error) => {
 };
 const successCallback = (position) => {
     center.value = [position.coords.latitude, position.coords.longitude];
-    console.dir("Count: ", callCount.value, " | ", position);
+    console.log(`Count: ${callCount.value} | ${center.value}`);
     callCount.value += 1;
 };
 onMounted(() => {
